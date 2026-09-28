@@ -10,7 +10,10 @@
  * (same-origin, so a relative "/api" path always works).
  */
 
-const API_BASE_URL = "/api";
+const API_BASE_URL =
+    window.location.hostname === "localhost"
+        ? "http://localhost:8080/api"
+        : "https://mahadine.onrender.com/api";
 const TOKEN_KEY = "mahadine_token";
 const USER_KEY = "mahadine_user";
 

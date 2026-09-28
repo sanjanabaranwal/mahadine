@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirm Booking — MAHADINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/booking.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<div class="container mt-3" style="max-width: 760px;">
+
+  <div id="bookingFormStep">
+    <div class="text-center mb-0">
+      <h1>Confirm Your Reservation</h1>
+      <p class="muted">Review the details below, choose a table, and confirm.</p>
+    </div>
+
+    <div class="booking-summary mt-2">
+      <div class="row"><span>Restaurant</span><span id="summaryRestaurantName">—</span></div>
+      <div class="row"><span>Date</span><span id="summaryDate">—</span></div>
+      <div class="row"><span>Time</span><span id="summaryTime">—</span></div>
+      <div class="row"><span>Guests</span><span id="summaryGuests">—</span></div>
+    </div>
+
+    <h3 class="mt-2">Choose a Table</h3>
+    <p class="muted" style="margin-top:-8px;">Tables shown as unavailable are already booked for this date &amp; time.</p>
+    <div class="table-option-grid" id="tableOptionsGrid"></div>
+
+    <div class="form-group mt-2">
+      <label for="specialRequestInput">Special request (optional)</label>
+      <textarea class="form-control" id="specialRequestInput" placeholder="e.g. window seat, birthday celebration, high chair needed"></textarea>
+    </div>
+
+    <button id="confirmBookingBtn" class="btn btn-primary btn-block" disabled>Confirm Booking</button>
+  </div>
+
+  <div id="bookingConfirmStep" style="display:none;">
+    <div class="confirmation-card">
+      <div class="check-icon">✓</div>
+      <h2>Booking Submitted!</h2>
+      <p class="muted">Here's a summary of your request.</p>
+
+      <div class="booking-summary">
+        <div class="row"><span>Booking ID</span><span id="confId"></span></div>
+        <div class="row"><span>Restaurant</span><span id="confRestaurant"></span></div>
+        <div class="row"><span>Date</span><span id="confDate"></span></div>
+        <div class="row"><span>Time</span><span id="confTime"></span></div>
+        <div class="row"><span>Guests</span><span id="confGuests"></span></div>
+        <div class="row"><span>Table</span><span id="confTable"></span></div>
+        <div class="row"><span>Status</span><span id="confStatus"></span></div>
+      </div>
+
+      <p class="muted" id="confStatusNote" style="font-size:0.9rem;"></p>
+
+      <div class="flex gap-1" style="justify-content:center;">
+        <a href="/my-bookings.html" class="btn btn-primary">View My Bookings</a>
+        <a href="/restaurants.html" class="btn btn-outline">Book Another Table</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer mt-3">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/booking.js"></script>
+</body>
+</html>

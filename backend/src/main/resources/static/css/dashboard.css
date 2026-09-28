@@ -1,0 +1,20 @@
+/* MAHADINE — User profile / my-bookings dashboard-style pages */
+
+.profile-layout { display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: start; }
+.profile-side { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 26px; text-align: center; }
+.profile-avatar { width: 92px; height: 92px; border-radius: 50%; background: var(--olive-700); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 16px; }
+.profile-side h3 { margin-bottom: 2px; }
+.profile-side p { color: var(--ink-500); font-size: 0.9rem; }
+.profile-stats { display: flex; justify-content: space-around; margin-top: 20px; border-top: 1px solid var(--cream-300); padding-top: 18px; }
+.profile-stats div strong { display: block; font-size: 1.3rem; color: var(--olive-800); }
+.profile-stats div span { font-size: 0.78rem; color: var(--ink-500); }
+
+.profile-main { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 32px; }
+
+.filter-bar { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+.filter-chip { padding: 8px 18px; border-radius: var(--radius-pill); background: var(--cream-200); font-size: 0.85rem; font-weight: 600; color: var(--ink-700); cursor: pointer; border: 1.5px solid transparent; }
+.filter-chip.active { background: var(--olive-700); color: #fff; }
+
+@media (max-width: 860px) {
+  .profile-layout { grid-template-columns: 1fr; }
+}

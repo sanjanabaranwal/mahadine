@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tables — MAHADINE Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css">
+<link rel="stylesheet" href="/admin/css/admin-responsive.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="brand"><span class="brand-mark">M</span> MAHADINE Admin</div>
+    <nav class="admin-nav">
+      <a href="/admin/dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="/admin/restaurants.html"><span class="nav-icon">🍽️</span> Restaurants</a>
+      <a href="/admin/tables.html" class="active"><span class="nav-icon">🪑</span> Tables</a>
+      <a href="/admin/reservations.html"><span class="nav-icon">📅</span> Reservations</a>
+      <a href="/admin/users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="/admin/analytics.html"><span class="nav-icon">📈</span> Analytics</a>
+      <a href="/admin/profile.html"><span class="nav-icon">⚙️</span> Profile</a>
+    </nav>
+    <div class="sidebar-footer"><button id="adminLogoutBtn">Logout</button></div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="flex gap-1">
+        <button class="admin-menu-toggle" id="adminMenuToggle">☰</button>
+        <h1>Tables</h1>
+      </div>
+      <div class="admin-user"><span class="avatar" id="adminAvatar">A</span><span id="adminName">Admin</span></div>
+    </div>
+
+    <div class="admin-content">
+      <div class="panel">
+        <div class="panel-header" style="align-items:flex-end;">
+          <div class="form-group" style="margin-bottom:0; min-width:280px;">
+            <label>Select Restaurant</label>
+            <select class="form-control" id="restaurantSelect"></select>
+          </div>
+          <button class="btn btn-primary" id="addTableBtn">+ Add Table</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Table</th><th>Capacity</th><th>Type</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="tablesBody"><tr><td colspan="5"><div class="spinner"></div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="tableModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="tableModalTitle">Add Table</h3>
+      <button class="modal-close" id="tableModalClose">&times;</button>
+    </div>
+    <form id="tableForm">
+      <div class="form-group"><label>Table Number</label><input class="form-control" name="tableNumber" placeholder="e.g. T5" required></div>
+      <div class="form-group"><label>Capacity (seats)</label><input class="form-control" type="number" min="1" name="capacity" required></div>
+      <div class="form-group"><label>Table Type</label>
+        <select class="form-control" name="tableType">
+          <option>Indoor</option><option>Outdoor</option><option>Window</option><option>Private</option><option>Bar</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Status</label>
+        <select class="form-control" name="status">
+          <option value="AVAILABLE">Available</option><option value="RESERVED">Reserved</option><option value="MAINTENANCE">Maintenance</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Save Table</button>
+    </form>
+  </div>
+</div>
+
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/layout.js"></script>
+<script src="/admin/js/tables.js"></script>
+</body>
+</html>

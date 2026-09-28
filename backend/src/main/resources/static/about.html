@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — MAHADINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/restaurants.html">Restaurants</a></li>
+      <li><a href="/index.html#how-it-works">How It Works</a></li>
+      <li><a href="/about.html" class="active">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>About MAHADINE</h1>
+    <p class="muted">Making restaurant reservations simple, transparent, and instant.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container" style="max-width: 820px;">
+    <h2>Our Story</h2>
+    <p>MAHADINE is a smart table reservation platform built to take the guesswork out of dining out. Instead of calling ahead or hoping for the best, guests can browse restaurants, see real availability, and confirm a table in a few clicks.</p>
+
+    <h2 class="mt-3">What We Offer</h2>
+    <div class="grid grid-3 mt-2">
+      <div class="card"><div class="card-body"><h3>For Guests</h3><p>Search restaurants by city and cuisine, view live table availability, and manage bookings from one place.</p></div></div>
+      <div class="card"><div class="card-body"><h3>For Restaurants</h3><p>An admin dashboard to manage tables, monitor reservations, and understand booking trends at a glance.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Built Right</h3><p>Backed by a Spring Boot + MySQL backend with server-side validation, so double-bookings simply can't happen.</p></div></div>
+    </div>
+
+    <h2 class="mt-3">A Note on This Project</h2>
+    <p>MAHADINE is a college full-stack demo project. The restaurants listed use sample data for Mumbai &amp; Maharashtra and are not claims about real, currently operating establishments unless independently verified.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+      <a href="/index.html">Back to Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

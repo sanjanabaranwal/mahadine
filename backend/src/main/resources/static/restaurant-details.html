@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Details — MAHADINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/booking.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/restaurants.html">Restaurants</a></li>
+      <li><a href="/index.html#how-it-works">How It Works</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<div class="container mt-3" id="detailsWrapper">
+  <div class="breadcrumb"><a href="/restaurants.html">Restaurants</a> / <span id="breadcrumbName">Details</span></div>
+
+  <div class="restaurant-hero">
+    <img id="heroImage" src="" alt="Restaurant">
+    <div class="overlay">
+      <div>
+        <h1 id="heroName" style="color:#fff;">Loading...</h1>
+        <div class="meta" id="heroMeta"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details-layout">
+    <div>
+      <div class="info-tabs">
+        <button class="active" data-tab="tabAbout">About</button>
+        <button data-tab="tabReviews">Reviews</button>
+        <button data-tab="tabInfo">Info</button>
+      </div>
+
+      <div class="tab-panel" id="tabAbout">
+        <h3>About this restaurant</h3>
+        <p id="aboutText" class="muted"></p>
+      </div>
+
+      <div class="tab-panel" id="tabReviews" style="display:none;">
+        <h3>Guest Reviews</h3>
+        <div id="reviewsList"></div>
+      </div>
+
+      <div class="tab-panel" id="tabInfo" style="display:none;">
+        <h3>Restaurant Information</h3>
+        <p><strong>Address:</strong> <span id="addressText"></span></p>
+        <p><strong>Phone:</strong> <span id="phoneText"></span></p>
+        <p><strong>Price Range:</strong> <span id="priceRangeText"></span></p>
+        <p class="muted" style="font-size:0.85rem;">MAHADINE lists demo/sample restaurant data for this college project — these are not claims about real businesses unless independently verified.</p>
+      </div>
+    </div>
+
+    <aside class="booking-panel">
+      <h3>Reserve a Table</h3>
+      <form id="bookForm">
+        <div class="form-group">
+          <label>Restaurant</label>
+          <input class="form-control" id="bookRestaurantName" disabled>
+        </div>
+        <div class="form-group">
+          <label for="dateInput">Date</label>
+          <input class="form-control" type="date" id="dateInput" name="dateInput" required>
+        </div>
+        <div class="form-group">
+          <label for="timeInput">Time</label>
+          <input class="form-control" type="time" id="timeInput" name="timeInput" value="19:30" required>
+        </div>
+        <div class="form-group">
+          <label>Guests</label>
+          <div class="guest-stepper" id="guestStepper">
+            <button type="button" id="guestMinus">−</button>
+            <span id="guestValue">2</span>
+            <button type="button" id="guestPlus">+</button>
+          </div>
+          <input type="hidden" id="guestsInput" name="guestsInput">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Check Availability</button>
+      </form>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer mt-3">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+      <a href="/restaurants.html">Back to Restaurants</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/restaurant-details.js"></script>
+</body>
+</html>

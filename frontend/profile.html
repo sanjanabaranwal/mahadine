@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — MAHADINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/restaurants.html">Restaurants</a></li>
+      <li><a href="/my-bookings.html">My Bookings</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>My Profile</h1>
+    <p class="muted">View and update your account details.</p>
+  </div>
+</div>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="profile-layout">
+      <div class="profile-side">
+        <div class="profile-avatar" id="profileAvatar">?</div>
+        <h3 id="profileName">Loading...</h3>
+        <p id="profileEmail"></p>
+        <div class="profile-stats">
+          <div><strong id="statTotalBookings">0</strong><span>Total</span></div>
+          <div><strong id="statUpcoming">0</strong><span>Upcoming</span></div>
+          <div><strong id="statCancelled">0</strong><span>Cancelled</span></div>
+        </div>
+      </div>
+
+      <div class="profile-main">
+        <h3>Account Details</h3>
+        <form id="profileForm" novalidate>
+          <div class="form-group">
+            <label for="name">Full name</label>
+            <input class="form-control" type="text" id="name" name="name" required>
+            <div class="form-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input class="form-control" type="email" id="email" name="email" disabled>
+            <div class="form-hint">Email address cannot be changed.</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input class="form-control" type="tel" id="phone" name="phone" required>
+            <div class="form-error"></div>
+          </div>
+
+          <hr style="border:none; border-top:1px solid var(--cream-300); margin: 24px 0;">
+          <h3>Change Password</h3>
+          <p class="muted" style="margin-top:-8px; font-size:0.88rem;">Leave blank to keep your current password.</p>
+          <div class="form-group">
+            <label for="newPassword">New password</label>
+            <input class="form-control" type="password" id="newPassword" name="newPassword" placeholder="At least 6 characters">
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm new password</label>
+            <input class="form-control" type="password" id="confirmNewPassword" name="confirmNewPassword">
+            <div class="form-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  if (!Auth.isLoggedIn()) {
+    window.location.href = "/login.html?redirect=" + encodeURIComponent(window.location.pathname);
+  }
+</script>
+<script src="/js/profile.js"></script>
+</body>
+</html>

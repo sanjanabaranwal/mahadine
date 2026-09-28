@@ -1,0 +1,47 @@
+/* MAHADINE — Auth pages (login/register) */
+
+.auth-wrapper {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.auth-visual {
+  background: linear-gradient(160deg, var(--olive-900), var(--olive-700));
+  color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.auth-visual::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08), transparent 50%);
+}
+.auth-visual h2 { color: #fff; font-size: 2rem; max-width: 380px; }
+.auth-visual p { color: var(--cream-300); max-width: 380px; }
+.auth-visual .quote { margin-top: 40px; border-left: 3px solid var(--gold-500); padding-left: 18px; font-style: italic; color: var(--olive-100); }
+
+.auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.auth-card { width: 100%; max-width: 420px; }
+.auth-card .brand { margin-bottom: 30px; }
+.auth-card h1 { font-size: 1.7rem; margin-bottom: 6px; }
+.auth-card .subtitle { color: var(--ink-500); margin-bottom: 30px; }
+.auth-switch { text-align: center; margin-top: 22px; font-size: 0.92rem; color: var(--ink-500); }
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 24px 0; color: var(--ink-500); font-size: 0.85rem; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--cream-400); }
+.password-field { position: relative; }
+.password-toggle { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--ink-500); font-size: 0.85rem; }
+.checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--ink-700); }
+
+@media (max-width: 900px) {
+  .auth-wrapper { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurants — MAHADINE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/restaurants.html" class="active">Restaurants</a></li>
+      <li><a href="/index.html#how-it-works">How It Works</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Find Your Table</h1>
+    <p class="muted">Browse restaurants across Mumbai &amp; Maharashtra and filter by city or cuisine.</p>
+  </div>
+</div>
+
+<section class="section-tight">
+  <div class="container">
+    <form id="filterForm" class="search-card" style="margin-top:0;">
+      <div class="search-grid" style="grid-template-columns: 1fr 1fr 1fr auto;">
+        <div class="field">
+          <label for="filterKeyword">Search</label>
+          <input type="text" id="filterKeyword" placeholder="Restaurant or area name">
+        </div>
+        <div class="field">
+          <label for="filterCity">City</label>
+          <input type="text" id="filterCity" placeholder="e.g. Mumbai, Pune">
+        </div>
+        <div class="field">
+          <label for="filterCuisine">Cuisine</label>
+          <input type="text" id="filterCuisine" placeholder="e.g. Seafood, Mughlai">
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </div>
+    </form>
+
+    <div class="flex-between mt-2" style="margin-bottom: 20px;">
+      <span class="muted" id="resultCount">Loading restaurants...</span>
+    </div>
+
+    <div class="grid grid-3" id="restaurantGrid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+      <a href="/index.html">Back to Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/restaurants.js"></script>
+</body>
+</html>

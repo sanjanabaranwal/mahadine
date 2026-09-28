@@ -1,0 +1,20 @@
+/* MAHADINE ADMIN — Responsive rules */
+
+@media (max-width: 1200px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .admin-sidebar { transform: translateX(-100%); }
+  .admin-sidebar.open { transform: translateX(0); }
+  .admin-main { margin-left: 0; }
+  .admin-menu-toggle { display: block; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .admin-content { padding: 20px 16px; }
+  .admin-topbar { padding: 14px 16px; }
+  .panel { padding: 18px; }
+}

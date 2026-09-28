@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAHADINE — Reserve Your Perfect Table</title>
+<meta name="description" content="Discover great restaurants across Mumbai & Maharashtra, check real-time availability, and reserve your table in a few clicks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/index.html" class="brand"><span class="brand-mark">M</span> MAHADINE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/restaurants.html">Restaurants</a></li>
+      <li><a href="/index.html#how-it-works">How It Works</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="navAuthSlot"></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Mumbai &amp; Maharashtra's Finest Tables</span>
+      <h1>Reserve Your Perfect Table</h1>
+      <p>Discover great restaurants, check real-time availability, and reserve your table in just a few clicks.</p>
+      <div class="hero-actions">
+        <a href="/restaurants.html" class="btn btn-gold">Explore Restaurants</a>
+        <a href="/restaurants.html" class="btn btn-outline-light">Reserve a Table</a>
+      </div>
+    </div>
+
+    <div class="search-card">
+      <form id="heroSearchForm" class="search-grid">
+        <div class="field">
+          <label for="heroCity">City / Location</label>
+          <input type="text" id="heroCity" name="city" placeholder="e.g. Mumbai, Bandra">
+        </div>
+        <div class="field">
+          <label for="heroDate">Date</label>
+          <input type="date" id="heroDate" name="date">
+        </div>
+        <div class="field">
+          <label for="heroTime">Time</label>
+          <input type="time" id="heroTime" name="time" value="19:30">
+        </div>
+        <div class="field">
+          <label for="heroGuests">Guests</label>
+          <select id="heroGuests" name="guests">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<section id="popular">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Handpicked For You</span>
+      <h2>Popular Restaurants</h2>
+      <p>Top-rated dining spots our guests keep coming back to.</p>
+    </div>
+    <div class="grid grid-4" id="popularGrid"></div>
+    <div class="text-center mt-3">
+      <a href="/restaurants.html" class="btn btn-outline">View All Restaurants</a>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" style="background:var(--cream-200);">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Simple &amp; Fast</span>
+      <h2>How It Works</h2>
+      <p>Booking your table takes less than a minute.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-icon">1</div><h3>Discover</h3><p>Browse restaurants across Mumbai &amp; Maharashtra.</p></div>
+      <div class="step"><div class="step-icon">2</div><h3>Choose</h3><p>Pick a restaurant, date, time, and party size.</p></div>
+      <div class="step"><div class="step-icon">3</div><h3>Reserve</h3><p>Select an available table and confirm instantly.</p></div>
+      <div class="step"><div class="step-icon">4</div><h3>Enjoy</h3><p>Show up and enjoy a great meal — no waiting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Why MAHADINE</span>
+      <h2>Why Choose MAHADINE</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="icon">⚡</div><h3>Easy Booking</h3><p>Reserve a table in under a minute from any device.</p></div>
+      <div class="why-card"><div class="icon">📊</div><h3>Real-Time Availability</h3><p>See genuinely free tables — no false promises.</p></div>
+      <div class="why-card"><div class="icon">🏆</div><h3>Trusted Restaurants</h3><p>Curated dining spots across the region.</p></div>
+      <div class="why-card"><div class="icon">✅</div><h3>Instant Confirmation</h3><p>Get a confirmed booking ID the moment you reserve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-200);">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Guest Stories</span>
+      <h2>What Our Guests Say</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Booking a table used to be such a hassle. MAHADINE made it effortless — picked a time, picked a table, done."</p>
+        <div class="testimonial-user"><span class="avatar">RA</span><div><strong>Riya Anand</strong><span>Mumbai</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Loved seeing real-time table availability before I even left the house. Zero surprises at the restaurant."</p>
+        <div class="testimonial-user"><span class="avatar">KS</span><div><strong>Karan Shah</strong><span>Pune</span></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Clean interface, quick confirmation, and I could manage my bookings easily. Exactly what I needed."</p>
+        <div class="testimonial-user"><span class="avatar">NP</span><div><strong>Neha Patil</strong><span>Thane</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band" style="max-width: 900px;">
+      <h2>Ready to reserve your table?</h2>
+      <p>Join MAHADINE today and never wait in line again.</p>
+      <a href="/register.html" class="btn" style="background:#fff; color:var(--gold-600); margin-top:18px;">Get Started Free</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><span class="brand-mark">M</span> MAHADINE</div>
+        <p class="mt-1">Discover great restaurants across Mumbai &amp; Maharashtra and reserve your table in seconds.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/restaurants.html">Restaurants</a></li>
+          <li><a href="/index.html#how-it-works">How It Works</a></li>
+          <li><a href="/register.html">Register</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/admin/login.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Mumbai, Maharashtra, India</li>
+          <li>hello@mahadine.com</li>
+          <li>+91 98200 00000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MAHADINE. Demo project for educational purposes only.</span>
+      <span>Built with HTML, CSS, JS, Spring Boot &amp; MySQL</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/api.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/restaurants.js"></script>
+</body>
+</html>

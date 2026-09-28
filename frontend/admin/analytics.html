@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics — MAHADINE Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css">
+<link rel="stylesheet" href="/admin/css/admin-responsive.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="brand"><span class="brand-mark">M</span> MAHADINE Admin</div>
+    <nav class="admin-nav">
+      <a href="/admin/dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="/admin/restaurants.html"><span class="nav-icon">🍽️</span> Restaurants</a>
+      <a href="/admin/tables.html"><span class="nav-icon">🪑</span> Tables</a>
+      <a href="/admin/reservations.html"><span class="nav-icon">📅</span> Reservations</a>
+      <a href="/admin/users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="/admin/analytics.html" class="active"><span class="nav-icon">📈</span> Analytics</a>
+      <a href="/admin/profile.html"><span class="nav-icon">⚙️</span> Profile</a>
+    </nav>
+    <div class="sidebar-footer"><button id="adminLogoutBtn">Logout</button></div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="flex gap-1">
+        <button class="admin-menu-toggle" id="adminMenuToggle">☰</button>
+        <h1>Analytics</h1>
+      </div>
+      <div class="admin-user"><span class="avatar" id="adminAvatar">A</span><span id="adminName">Admin</span></div>
+    </div>
+
+    <div class="admin-content">
+      <div class="grid-2" style="display:grid; grid-template-columns: 1fr 1fr; gap: 22px;">
+        <div class="panel">
+          <div class="panel-header"><h3>Popular Restaurants</h3></div>
+          <div id="popularRestaurantsList"><div class="spinner"></div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><h3>Reservation Status Breakdown</h3></div>
+          <div id="statusBreakdown"><div class="spinner"></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/layout.js"></script>
+<script src="/admin/js/analytics.js"></script>
+</body>
+</html>

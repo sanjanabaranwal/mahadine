@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — MAHADINE Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/css/admin.css">
+<link rel="stylesheet" href="/admin/css/admin-responsive.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="brand"><span class="brand-mark">M</span> MAHADINE Admin</div>
+    <nav class="admin-nav">
+      <a href="/admin/dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="/admin/restaurants.html"><span class="nav-icon">🍽️</span> Restaurants</a>
+      <a href="/admin/tables.html"><span class="nav-icon">🪑</span> Tables</a>
+      <a href="/admin/reservations.html"><span class="nav-icon">📅</span> Reservations</a>
+      <a href="/admin/users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="/admin/analytics.html"><span class="nav-icon">📈</span> Analytics</a>
+      <a href="/admin/profile.html"><span class="nav-icon">⚙️</span> Profile</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="adminLogoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="flex gap-1">
+        <button class="admin-menu-toggle" id="adminMenuToggle">☰</button>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="admin-user">
+        <span class="avatar" id="adminAvatar">A</span>
+        <span id="adminName">Admin</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-icon olive">👥</div><div><div class="stat-value" id="statTotalUsers">—</div><div class="stat-label">Total Users</div></div></div>
+        <div class="stat-card"><div class="stat-icon gold">🍽️</div><div><div class="stat-value" id="statTotalRestaurants">—</div><div class="stat-label">Restaurants</div></div></div>
+        <div class="stat-card"><div class="stat-icon info">🪑</div><div><div class="stat-value" id="statTotalTables">—</div><div class="stat-label">Total Tables</div></div></div>
+        <div class="stat-card"><div class="stat-icon success">📅</div><div><div class="stat-value" id="statTotalReservations">—</div><div class="stat-label">Reservations</div></div></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-icon warning">⏰</div><div><div class="stat-value" id="statTodayReservations">—</div><div class="stat-label">Today's Reservations</div></div></div>
+        <div class="stat-card"><div class="stat-icon warning">⏳</div><div><div class="stat-value" id="statPending">—</div><div class="stat-label">Pending</div></div></div>
+        <div class="stat-card"><div class="stat-icon success">✅</div><div><div class="stat-value" id="statConfirmed">—</div><div class="stat-label">Confirmed</div></div></div>
+        <div class="stat-card"><div class="stat-icon danger">✕</div><div><div class="stat-value" id="statCancelled">—</div><div class="stat-label">Cancelled</div></div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Recent Reservations</h3>
+          <a href="/admin/reservations.html" class="btn btn-outline btn-sm">View All</a>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Booking ID</th><th>Customer</th><th>Restaurant</th><th>Date</th><th>Time</th><th>Guests</th><th>Status</th></tr>
+            </thead>
+            <tbody id="recentReservationsBody">
+              <tr><td colspan="7"><div class="spinner"></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/layout.js"></script>
+<script src="/admin/js/dashboard.js"></script>
+</body>
+</html>

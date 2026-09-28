@@ -3,7 +3,10 @@
  * separate so the admin panel has no dependency on user-side scripts).
  */
 
-const API_BASE_URL = "/api";
+const API_BASE_URL =
+    window.location.hostname === "localhost"
+        ? "http://localhost:8080/api"
+        : "https://mahadine.onrender.com/api";
 const TOKEN_KEY = "mahadine_admin_token";
 const USER_KEY = "mahadine_admin_user";
 

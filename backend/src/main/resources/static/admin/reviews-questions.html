@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analytics — MAHADINE Admin</title>
+<title>Reviews &amp; Questions — MAHADINE Admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/admin/css/admin.css">
@@ -20,11 +20,8 @@
       <a href="/admin/tables.html"><span class="nav-icon">🪑</span> Tables</a>
       <a href="/admin/reservations.html"><span class="nav-icon">📅</span> Reservations</a>
       <a href="/admin/users.html"><span class="nav-icon">👥</span> Users</a>
-      <a href="/admin/analytics.html" class="active"><span class="nav-icon">📈</span> Analytics</a>
-<<<<<<< HEAD
-=======
+      <a href="/admin/analytics.html"><span class="nav-icon">📈</span> Analytics</a>
       <a href="/admin/reviews-questions.html"><span class="nav-icon">💬</span> Reviews &amp; Questions</a>
->>>>>>> 7df2a72 (Update project code)
     </nav>
     <div class="sidebar-footer"><button id="adminLogoutBtn">Logout</button></div>
   </aside>
@@ -33,28 +30,45 @@
     <div class="admin-topbar">
       <div class="flex gap-1">
         <button class="admin-menu-toggle" id="adminMenuToggle">☰</button>
-        <h1>Analytics</h1>
+        <h1>Reviews &amp; Questions</h1>
       </div>
       <div class="admin-user"><span class="avatar" id="adminAvatar">A</span><span id="adminName">Admin</span></div>
     </div>
 
     <div class="admin-content">
-      <div class="grid-2" style="display:grid; grid-template-columns: 1fr 1fr; gap: 22px;">
-        <div class="panel">
-          <div class="panel-header"><h3>Popular Restaurants</h3></div>
-          <div id="popularRestaurantsList"><div class="spinner"></div></div>
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Messages from Get in Touch</h3>
+          <div class="flex gap-1" id="rqFilters">
+            <button class="btn btn-primary btn-sm" data-filter="ALL">All</button>
+            <button class="btn btn-outline btn-sm" data-filter="NEW">New</button>
+            <button class="btn btn-outline btn-sm" data-filter="READ">Read</button>
+            <button class="btn btn-outline btn-sm" data-filter="RESOLVED">Resolved</button>
+          </div>
         </div>
-        <div class="panel">
-          <div class="panel-header"><h3>Reservation Status Breakdown</h3></div>
-          <div id="statusBreakdown"><div class="spinner"></div></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>User</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="rqBody"><tr><td colspan="7"><div class="spinner"></div></td></tr></tbody>
+          </table>
         </div>
       </div>
     </div>
   </main>
 </div>
 
+<div class="modal-overlay" id="rqModal">
+  <div class="modal" style="max-width: 560px;">
+    <div class="modal-header">
+      <h3>Message Details</h3>
+      <button class="modal-close" id="rqModalClose">&times;</button>
+    </div>
+    <div id="rqModalBody"></div>
+  </div>
+</div>
+
 <script src="/admin/js/api.js"></script>
 <script src="/admin/js/layout.js"></script>
-<script src="/admin/js/analytics.js"></script>
+<script src="/admin/js/reviews-questions.js"></script>
 </body>
 </html>

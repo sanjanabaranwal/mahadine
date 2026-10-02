@@ -75,7 +75,12 @@ const AdminApi = {
   reservations: () => adminApiRequest("/admin/reservations"),
   updateReservationStatus: (id, status) => adminApiRequest(`/admin/reservations/${id}/status`, { method: "PUT", body: { status } }),
   updateReservation: (id, data) => adminApiRequest(`/admin/reservations/${id}`, { method: "PUT", body: data }),
-  deleteReservation: (id) => adminApiRequest(`/admin/reservations/${id}`, { method: "DELETE" })
+  deleteReservation: (id) => adminApiRequest(`/admin/reservations/${id}`, { method: "DELETE" }),
+
+  reviewsQuestions: () => adminApiRequest("/admin/reviews-questions"),
+  markReviewQuestionRead: (id) => adminApiRequest(`/admin/reviews-questions/${id}/read`, { method: "PUT" }),
+  resolveReviewQuestion: (id) => adminApiRequest(`/admin/reviews-questions/${id}/resolve`, { method: "PUT" }),
+  deleteReviewQuestion: (id) => adminApiRequest(`/admin/reviews-questions/${id}`, { method: "DELETE" })
 };
 
 function showToast(message, type = "info", duration = 4200) {

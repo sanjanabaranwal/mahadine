@@ -134,7 +134,7 @@ const Api = {
   createReview: (restaurantId, data) => apiRequest(`/restaurants/${restaurantId}/reviews`, { method: "POST", body: data }),
 
   // ---- Contact ----
-  submitContact: (data) => apiRequest("/contact", { method: "POST", body: data, auth: false }),
+  submitContact: (data) => apiRequest("/contact", { method: "POST", body: data }),
 
   // ---- Admin ----
   adminDashboard: () => apiRequest("/admin/dashboard"),

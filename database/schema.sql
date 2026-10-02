@@ -94,5 +94,9 @@ CREATE TABLE IF NOT EXISTS contact_messages (
     email VARCHAR(150) NOT NULL,
     subject VARCHAR(200),
     message VARCHAR(2000) NOT NULL,
-    created_at DATETIME NOT NULL
+    user_id BIGINT NULL,
+    status VARCHAR(20) NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 );

@@ -71,9 +71,7 @@ public class ReservationService {
             throw new BadRequestException("Reservation time cannot be in the past");
         }
         if (!isWithinOperatingHours(restaurant, req.getReservationTime())) {
-            throw new BadRequestException(String.format(
-                    "Reservation time must be between %s and %s",
-                    restaurant.getOpeningTime(), restaurant.getClosingTime()));
+            throw new BadRequestException("Reservation time is outside the restaurant's operating hours.");
         }
 
         long conflicts = reservationRepository.countActiveConflicts(table.getId(), req.getReservationDate(), req.getReservationTime());
@@ -97,15 +95,7 @@ public class ReservationService {
     }
 
     private boolean isWithinOperatingHours(Restaurant restaurant, LocalTime time) {
-        LocalTime open = restaurant.getOpeningTime();
-        LocalTime close = restaurant.getClosingTime();
-        if (open == null || close == null) return true;
-
-        if (close.isAfter(open)) {
-            return !time.isBefore(open) && !time.isAfter(close);
-        } else {
-            return !time.isBefore(open) || !time.isAfter(close);
-        }
+        return restaurantService.isOpenAt(restaurant, time);
     }
 
     @Transactional(readOnly = true)
@@ -176,9 +166,7 @@ public class ReservationService {
             throw new BadRequestException("This table can seat a maximum of " + reservation.getTable().getCapacity() + " guests");
         }
         if (!isWithinOperatingHours(reservation.getRestaurant(), req.getReservationTime())) {
-            throw new BadRequestException(String.format(
-                    "Reservation time must be between %s and %s",
-                    reservation.getRestaurant().getOpeningTime(), reservation.getRestaurant().getClosingTime()));
+            throw new BadRequestException("Reservation time is outside the restaurant's operating hours.");
         }
 
         // Conflict check excluding this reservation's own row

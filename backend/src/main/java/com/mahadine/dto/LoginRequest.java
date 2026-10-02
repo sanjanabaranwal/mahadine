@@ -13,4 +13,7 @@ public class LoginRequest {
 
     @NotBlank(message = "Password is required")
     private String password;
+
+    /** Which portal the login came from: "ADMIN" or "USER" (default). Only selects the door; the account's real role is always verified from the database. */
+    private String portal;
 }

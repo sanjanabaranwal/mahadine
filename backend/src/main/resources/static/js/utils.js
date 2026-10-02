@@ -92,3 +92,21 @@ document.addEventListener("click", (e) => {
     if (!dd.contains(e.target)) dd.classList.remove("open");
   });
 });
+
+
+/* Restaurant operating hours (mirrors the backend rule; the backend still enforces it). */
+function timeToMinutes(t) {
+  if (!t) return null;
+  const [h, m] = String(t).split(":").map(Number);
+  return h * 60 + (m || 0);
+}
+
+function isWithinOperatingHours(opening, closing, time) {
+  const o = timeToMinutes(opening), c = timeToMinutes(closing), t = timeToMinutes(time);
+  if (o === null || c === null || t === null) return true;
+  return c > o ? (t >= o && t <= c) : (t >= o || t <= c);
+}
+
+function closedMessage(opening, closing) {
+  return `This restaurant is closed at the selected time. Please choose a time between ${formatTime(opening)} and ${formatTime(closing)}.`;
+}

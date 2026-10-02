@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.textContent = "Signing in...";
 
     try {
-      const result = await AdminApi.login({ email, password });
+      const result = await AdminApi.login({ email, password, portal: "ADMIN" });
 
       if (result.user.role !== "ADMIN") {
         showToast("Admin access required.", "error");

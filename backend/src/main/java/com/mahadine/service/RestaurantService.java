@@ -8,6 +8,7 @@ import com.mahadine.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -22,6 +23,22 @@ public class RestaurantService {
                 (cuisine == null || cuisine.isBlank()) ? null : cuisine,
                 (keyword == null || keyword.isBlank()) ? null : keyword
         );
+    }
+
+    /**
+     * Single source of truth for operating hours. Same-day hours (open < close)
+     * and overnight hours (close <= open, e.g. 18:00 -> 02:00) are both handled.
+     * Missing hours mean no restriction. The closing time itself stays valid,
+     * matching the project's existing rule.
+     */
+    public boolean isOpenAt(Restaurant restaurant, LocalTime time) {
+        LocalTime open = restaurant.getOpeningTime();
+        LocalTime close = restaurant.getClosingTime();
+        if (open == null || close == null || time == null) return true;
+        if (close.isAfter(open)) {
+            return !time.isBefore(open) && !time.isAfter(close);
+        }
+        return !time.isBefore(open) || !time.isAfter(close);
     }
 
     public List<Restaurant> getAll() {

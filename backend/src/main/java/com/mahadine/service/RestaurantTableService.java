@@ -37,13 +37,15 @@ public class RestaurantTableService {
     /** Returns tables for a restaurant with availability flag for the given date/time/guests. */
     public List<java.util.Map<String, Object>> getAvailability(Long restaurantId, LocalDate date, LocalTime time, Integer guests) {
         List<RestaurantTable> tables = tableRepository.findByRestaurantId(restaurantId);
+        // A closed restaurant cannot take reservations: nothing is bookable outside operating hours.
+        boolean open = time == null || restaurantService.isOpenAt(restaurantService.getById(restaurantId), time);
         List<Long> bookedIds = (date != null && time != null)
                 ? reservationRepository.findBookedTableIds(restaurantId, date, time)
                 : List.of();
 
         return tables.stream().map(t -> {
             boolean matchesGuests = guests == null || t.getCapacity() >= guests;
-            boolean isFree = t.getStatus() == TableStatus.AVAILABLE && !bookedIds.contains(t.getId());
+            boolean isFree = open && t.getStatus() == TableStatus.AVAILABLE && !bookedIds.contains(t.getId());
             java.util.Map<String, Object> map = new java.util.LinkedHashMap<>();
             map.put("id", t.getId());
             map.put("tableNumber", t.getTableNumber());

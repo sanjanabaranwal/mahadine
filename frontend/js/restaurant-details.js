@@ -34,6 +34,12 @@ async function loadRestaurantDetails() {
     document.getElementById("bookForm").dataset.restaurantId = r.id;
     document.getElementById("bookForm").dataset.opening = r.openingTime;
     document.getElementById("bookForm").dataset.closing = r.closingTime;
+    // Same-day hours: restrict the picker. Overnight hours can't be expressed with min/max, so JS validation handles them.
+    if (r.openingTime && r.closingTime && timeToMinutes(r.closingTime) > timeToMinutes(r.openingTime)) {
+      const ti = document.getElementById("timeInput");
+      ti.min = r.openingTime.slice(0, 5);
+      ti.max = r.closingTime.slice(0, 5);
+    }
 
     loadReviews(id);
   } catch (err) {
@@ -102,6 +108,11 @@ function initBookForm() {
 
     if (!date || !time || !guests) {
       showToast("Please select a date, time, and number of guests", "error");
+      return;
+    }
+
+    if (!isWithinOperatingHours(form.dataset.opening, form.dataset.closing, time)) {
+      showToast(closedMessage(form.dataset.opening, form.dataset.closing), "error");
       return;
     }
 

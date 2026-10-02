@@ -147,8 +147,6 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("=========================================================");
         System.out.println(" MAHADINE demo data seeded successfully");
-        System.out.println(" Admin login  -> admin@mahadine.com / Admin@12345");
-        System.out.println(" User login   -> user@mahadine.com / User@12345");
         System.out.println("=========================================================");
     }
 

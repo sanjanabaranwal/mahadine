@@ -42,6 +42,12 @@ async function initBookingPage() {
     document.getElementById("summaryTime").textContent = formatTime(time);
     document.getElementById("summaryGuests").textContent = guests;
 
+    if (!isWithinOperatingHours(restaurant.openingTime, restaurant.closingTime, time)) {
+      document.getElementById("tableOptionsGrid").innerHTML =
+        `<div class="empty-state"><div class="icon">🕐</div><p>${escapeHtml(closedMessage(restaurant.openingTime, restaurant.closingTime))}</p></div>`;
+      return;
+    }
+
     await loadTableOptions();
   } catch (err) {
     formStep.innerHTML = `<div class="empty-state"><div class="icon">😕</div><p>${escapeHtml(err.message)}</p></div>`;

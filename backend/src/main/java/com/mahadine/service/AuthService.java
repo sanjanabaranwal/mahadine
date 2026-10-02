@@ -56,6 +56,17 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail().toLowerCase())
                 .orElseThrow(() -> new BadRequestException("Invalid email or password"));
 
+        // Strict portal separation, checked only AFTER the credentials are valid
+        // so wrong passwords still get the generic error. The role comes from the
+        // database record, never from the request.
+        boolean adminPortal = "ADMIN".equalsIgnoreCase(request.getPortal());
+        if (adminPortal && user.getRole() != Role.ADMIN) {
+            throw new BadRequestException("Admin access required.");
+        }
+        if (!adminPortal && user.getRole() == Role.ADMIN) {
+            throw new BadRequestException("Please use the Admin Portal to sign in.");
+        }
+
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String token = jwtService.generateToken(userDetails, Map.of("role", user.getRole().name(), "name", user.getName()));
 

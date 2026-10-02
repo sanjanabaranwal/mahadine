@@ -13,7 +13,8 @@ async function loadUsers() {
   const tbody = document.getElementById("usersBody");
   tbody.innerHTML = `<tr><td colspan="6"><div class="spinner"></div></td></tr>`;
   try {
-    const [users, reservations] = await Promise.all([AdminApi.users(), AdminApi.reservations()]);
+    const [allUsersRaw, reservations] = await Promise.all([AdminApi.users(), AdminApi.reservations()]);
+    const users = allUsersRaw.filter(u => u.role !== "ADMIN");
     allUsers = users;
     allReservationsForUsers = reservations;
 
